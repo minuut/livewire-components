@@ -15,7 +15,6 @@ class ApiCall extends Component
         $response = Http::get('https://dog.ceo/api/breeds/image/random/9');
 
         $this->images = $response->json();
-        Log::info('Component mounted!');
     }
     public function rotateImage($url)
     {
