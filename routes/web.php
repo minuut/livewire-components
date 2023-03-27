@@ -1,6 +1,9 @@
 <?php
 
+use App\Http\Livewire\ApiCall;
 use App\Http\Livewire\Calculator;
+use App\Http\Livewire\UserSearch;
+use App\Http\Livewire\ProductSearch;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,9 +17,34 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/counter', function () {
+Route::get('/', function () {
     return view('welcome');
-})->name('counter');
+});
 
+Route::get('/calculator', \App\Http\Livewire\Calculator::class)->name('calculator');
+Route::get('/todo-list', \App\Http\Livewire\TodoList::class)->name('todo-list');
+Route::get('/cascading-dropdown', \App\Http\Livewire\CascadingDropdown::class)->name('cascading-dropdown');
 
-Route::get('/calculator', Calculator::class);
+/*
+|--------------------------------------------------------------------------
+| Livewire search routes
+|--------------------------------------------------------------------------
+*/
+Route::get('/products', ProductSearch::class)->name('products');
+Route::get('/user-search', UserSearch::class)->name('products');
+
+/*
+|--------------------------------------------------------------------------
+| Livewire Image upload with preview
+|--------------------------------------------------------------------------
+*/
+
+Route::get('/image-upload', \App\Http\Livewire\ImageUpload::class)->name('image-upload');
+
+/*
+|--------------------------------------------------------------------------
+| Livewire Api Call
+|--------------------------------------------------------------------------
+*/
+
+Route::get('/api-call', ApiCall::class)->name('api-call');

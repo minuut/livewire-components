@@ -1,12 +1,12 @@
 <?php
 
 namespace App\Http\Livewire;
+
 use App\Models\TodoItem;
 use Livewire\Component;
 
 class TodoList extends Component
 {
-    
     public $todos;
     public string $todoText = '';
 
@@ -22,18 +22,13 @@ class TodoList extends Component
 
     public function addTodo()
     {
-       $todo = new TodoItem();
-       $todo->todo = $this->todoText;
-       $todo->completed = false;
-       $todo->save();
+        $todo = new TodoItem();
+        $todo->todo = $this->todoText;
+        $todo->completed = false;
+        $todo->save();
 
-       $this->todoText = '';
-       $this->selectTodos();
-    }
-
-    public function selectTodos()
-    {
-        $this->todos = TodoItem::orderBy('created_at', 'DESC')->get();
+        $this->todoText = '';
+        $this->selectTodos();
     }
 
     public function toggleTodo($id)
@@ -55,5 +50,10 @@ class TodoList extends Component
         }
         $todo->delete();
         $this->selectTodos();
+    }
+
+    public function selectTodos()
+    {
+        $this->todos = TodoItem::orderBy('created_at', 'DESC')->get();
     }
 }

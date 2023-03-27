@@ -1,4 +1,4 @@
-<div class="bg-gray-700">
+<div class="bg-gray-500">
     <div class="flex flex-col items-center">
         <div class="flex p-16 mx-auto justify-center items-center gap-4">
             <input type ="number" wire:model="number1" placeholder="...">
